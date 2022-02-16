@@ -1,6 +1,8 @@
 package com.example.board1.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Board {
 
@@ -8,6 +10,9 @@ public class Board {
     private String userIndex;
     private String title;
     private String viewCount;
+    //private Content content; 이걸로 가능한지 확인 해야됨
+    private String content;
+    public List<Reply> replies = new ArrayList<>();
     private Date date = new Date();
 
     public Board() {

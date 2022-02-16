@@ -1,10 +1,15 @@
 package com.example.board1.repository;
 
+import com.example.board1.domain.Reply;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+@SpringBootTest
 class JdbcTemplateBoardRepositoryTest {
+
+    @Autowired
+    JdbcTemplateBoardRepository jdbcTemplateBoardRepository;
 
     @Test
     void write() {
@@ -16,5 +21,10 @@ class JdbcTemplateBoardRepositoryTest {
 
     @Test
     void findAll() {
+    }
+
+    @Test
+    void insertCommentTest() {
+        jdbcTemplateBoardRepository.replyWrite(new Reply(4, 2, "TEST" ));
     }
 }
