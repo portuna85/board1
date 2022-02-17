@@ -27,16 +27,16 @@ public class BoardController {
     @Autowired
     BoardService service;
 
-    @GetMapping("/list")
-    public List<Map<String, java.lang.Object>> list() {
-        List<Map<String, java.lang.Object>> list = repository.findAll();
-        return list;
-    }
-
     @PostMapping("/board")
     public int createBoard(@RequestBody Board board) {
-        repository.write(board);
-        return 1;
+        // repository.write(board);
+        return repository.write(board);
+    }
+
+    @GetMapping("/list")
+    public List<Map<String, Object>> list() {
+        List<Map<String, java.lang.Object>> list = repository.findAll();
+        return list;
     }
 
     @PostMapping("/reply")
@@ -49,15 +49,8 @@ public class BoardController {
         }
     }
 
-    @GetMapping("/reply-list")
-    public Board showConReply(@RequestParam("idx") Integer boardIdx) {
-        //return repository.getReply(boardIdx);
-        return null;
-    }
-
     @GetMapping("/content")
     public Board contentDetail(@RequestParam("idx") Integer boardIndex) {
         return service.getBoardList(boardIndex);
     }
-
 }

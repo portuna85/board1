@@ -6,10 +6,10 @@ import java.util.List;
 
 public class Board {
 
-    private String idx;
-    private String userIndex;
+    private long idx;
+    private long userIndex;
     private String title;
-    private String viewCount;
+    private long viewCount;
     //private Content content; 이걸로 가능한지 확인 해야됨
     private String content;
     public List<Reply> replies = new ArrayList<>();
@@ -18,28 +18,18 @@ public class Board {
     public Board() {
     }
 
-    public Board(String idx, String userIndex, String title, String viewCount, Date date) {
-        this.idx = idx;
+    public Board(long userIndex, String title, long viewCount) {
         this.userIndex = userIndex;
         this.title = title;
         this.viewCount = viewCount;
-        this.date = date;
     }
 
-    public String getUserIndex() {
+    public long getUserIndex() {
         return userIndex;
     }
 
-    public void setUserIndex(String userIndex) {
+    public void setUserIndex(long userIndex) {
         this.userIndex = userIndex;
-    }
-
-    public String getIdx() {
-        return idx;
-    }
-
-    public void setIdx(String idx) {
-        this.idx = idx;
     }
 
     public String getTitle() {
@@ -50,29 +40,11 @@ public class Board {
         this.title = title;
     }
 
-    public String getViewCount() {
+    public long getViewCount() {
         return viewCount;
     }
 
-    public void setViewCount(String viewCount) {
+    public void setViewCount(long viewCount) {
         this.viewCount = viewCount;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    @Override
-    public String toString() {
-        return "Board{" +
-                "idx='" + idx + '\'' +
-                ", title='" + title + '\'' +
-                ", viewCount='" + viewCount + '\'' +
-                ", date=" + date +
-                '}';
     }
 }

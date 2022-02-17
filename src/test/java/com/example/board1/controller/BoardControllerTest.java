@@ -24,7 +24,7 @@ class BoardControllerTest {
     @Test
     public int write(Board board) {
         return jdbcTemplate.update("INSERT INTO board_db.board (idx, user_idx, title, view_count, created) VALUES (null, ?, ?, ?, now())",
-                new java.lang.Object[]{board.getIdx(), board.getTitle(), board.getViewCount()});
+                new java.lang.Object[]{board.getUserIndex(), board.getTitle(), board.getViewCount()});
     }
 
 

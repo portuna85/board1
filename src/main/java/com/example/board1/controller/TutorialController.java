@@ -21,9 +21,6 @@ public class TutorialController {
     @GetMapping("/tutorials")
     public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title, @RequestBody Tutorial tutorial) {
         try {
-
-            System.out.println(tutorial);
-
             List<Tutorial> tutorials = new ArrayList<Tutorial>();
             if (title == null) {
                 tutorialRepository.findAll().forEach(tutorials::add);

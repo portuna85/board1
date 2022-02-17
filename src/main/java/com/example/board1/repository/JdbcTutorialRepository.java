@@ -30,9 +30,8 @@ public class JdbcTutorialRepository implements TutorialRepository {
     @Override
     public Tutorial findById(Long id) {
         try {
-            Tutorial tutorial = jdbcTemplate.queryForObject("SELECT * FROM tutorials WHERE id=?",
+            return jdbcTemplate.queryForObject("SELECT * FROM tutorials WHERE id=?",
                     BeanPropertyRowMapper.newInstance(Tutorial.class), id);
-            return tutorial;
         } catch (IncorrectResultSizeDataAccessException e) {
             return null;
         }

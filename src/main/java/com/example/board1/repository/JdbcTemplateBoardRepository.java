@@ -19,8 +19,14 @@ public class JdbcTemplateBoardRepository implements BoardRepository {
     // 게시글 목록 작성
     @Override
     public int write(Board board) {
-        return jdbcTemplate.update("INSERT INTO board_db.board (idx, user_idx, title, view_count, created) VALUES (null, ?, ?, ?, now())",
-                new java.lang.Object[]{board.getIdx(), board.getTitle(), board.getViewCount()});
+        StringBuilder sql = new StringBuilder("INSERT INTO board_db.board (idx, user_idx, title, view_count, created) VALUES (null, ?, ?, ?, now())");
+        Object[] obj = {board.getUserIndex(), board.getTitle(), board.getViewCount()};
+        return jdbcTemplate.update(sql.toString(), obj);
+
+        /*
+        StringBuilder sql = new StringBuilder("INSERT INTO board_db.reply (idx, board_idx, user_idx, content, created) VALUES (null, ?, ?, ?, now())");
+        return jdbcTemplate.update(sql.toString(), new Object[]{reply.getBoardIdx(), reply.getUserIdx(), reply.getContent()});
+        */
     }
 
     // 게시글 리스트 조회
