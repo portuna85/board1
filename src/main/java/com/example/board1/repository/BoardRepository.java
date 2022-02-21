@@ -16,10 +16,10 @@ public interface BoardRepository {
     Board showContent(Integer idx);
 
     // 게시글 리스트(목록)과 댓글 내용 조회
-    List<Map<String, java.lang.Object>> getReply(Integer idx);
+    List<Map<String, Object>> getReply(Integer idx);
 
     // 게시글에 댓글 달기
     int replyWrite(Reply reply);
 
-    List<Map<String, java.lang.Object>> findAll();
+    List<Map<String, Object>> findAll();
 }

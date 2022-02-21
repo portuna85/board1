@@ -1,10 +1,12 @@
 package com.example.board1.repository;
 
+
 import com.example.board1.domain.Tutorial;
 
 import java.util.List;
 
 public interface TutorialRepository {
+    Tutorial tutoral = new Tutorial();
     int save(Tutorial book);
     int update(Tutorial book);
     Tutorial findById(Long id);

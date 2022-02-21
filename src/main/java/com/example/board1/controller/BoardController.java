@@ -14,13 +14,11 @@ import java.util.Map;
 
 @RestController
 public class BoardController {
-
     // C R U D
     // C: http method POST
     // R: http method GET
     // U: http method PUT
     // D: http method GET, POST
-
     @Autowired
     JdbcTemplateBoardRepository repository;
 
@@ -29,13 +27,12 @@ public class BoardController {
 
     @PostMapping("/board")
     public int createBoard(@RequestBody Board board) {
-        // repository.write(board);
         return repository.write(board);
     }
 
     @GetMapping("/list")
     public List<Map<String, Object>> list() {
-        List<Map<String, java.lang.Object>> list = repository.findAll();
+        List<Map<String, Object>> list = repository.findAll();
         return list;
     }
 
@@ -53,4 +50,12 @@ public class BoardController {
     public Board contentDetail(@RequestParam("idx") Integer boardIndex) {
         return service.getBoardList(boardIndex);
     }
+
+    /*
+    @GetMapping("/content")
+    public List<Map<String, Object>> contentDetail(@RequestParam("idx") Integer boardIndex) {
+        return service.getBoardList(boardIndex);
+    }
+    */
+
 }

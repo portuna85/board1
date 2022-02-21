@@ -13,9 +13,7 @@ public class BoardService {
 
     @Autowired
     JdbcTemplateBoardRepository repository;
-
     public Board getBoardList(Integer boardIndex) {
-
         // 게시글 index를 이용하여 게시글 획득
         Board board = repository.showContent(boardIndex);
 
@@ -24,4 +22,17 @@ public class BoardService {
 
         return board;
     }
+
+    /*
+    public List<Map<String, Object>> getBoardList(Integer boardIndex) {
+        // 게시글 index를 이용하여 게시글 획득
+        Board board = repository.showContent(boardIndex);
+
+        // 게시글 index를 이용하여 게시글의 댓글 획득
+        List<Map<String, Object>> list = repository.getReply(boardIndex);
+
+        return list;
+    }
+    */
+
 }
